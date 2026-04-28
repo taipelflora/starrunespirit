@@ -1,16 +1,17 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RuneSpirit</title>
+    <title>RuneSpirit - 動物靈盧恩占卜</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="manifest" href="manifest.json">
+    
+    <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#000000">
+    
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -27,29 +28,34 @@
         background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "@google/genai": "https://esm.sh/@google/genai@^1.42.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+    
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://esm.sh/react-dom@19.0.0/",
+        "react/": "https://esm.sh/react@19.0.0/",
+        "react": "https://esm.sh/react@19.0.0",
+        "@google/genai": "https://esm.sh/@google/genai@1.0.5"
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="index.css">
+  </head>
   <body>
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-  <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .then(reg => console.log('PWA 註冊成功！'))
-        .catch(err => console.log('註冊失敗', err));
-    });
-  }
-</script>
-</body>
+    
+    <script type="module" src="index.tsx"></script>
+    
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          // 修正 4: Service Worker 註冊路徑建議使用相對路徑
+          navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('PWA 註冊成功！'))
+            .catch(err => console.log('註冊失敗', err));
+        });
+      }
+    </script>
+  </body>
 </html>
