@@ -23,5 +23,17 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      // 請確保檔案路徑正確，Vite 預設通常會產生一個 sw.js 或 registerSW.js
+      navigator.serviceWorker.register('./sw.js').then(reg => {
+        console.log('Service Worker 註冊成功！', reg);
+      }).catch(err => {
+        console.log('Service Worker 註冊失敗：', err);
+      });
+    });
+  }
+</script>
     </body>
 </html>
